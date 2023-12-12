@@ -14,7 +14,7 @@ import com.rjtrip.services.ClienteServices;
 public class ClienteServicesImpl implements ClienteServices {
 
 	@Autowired
-	ClienteRepository clienteRepository;
+	private ClienteRepository clienteRepository;
 	
 	@Override
 	public List<Cliente> getAllClientes() {

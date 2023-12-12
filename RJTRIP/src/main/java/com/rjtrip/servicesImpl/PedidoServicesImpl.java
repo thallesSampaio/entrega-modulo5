@@ -12,7 +12,7 @@ import com.rjtrip.services.PedidoServices;
 @Service
 public class PedidoServicesImpl implements PedidoServices {
 
-	PedidoRepository pedidoRepository;
+	private PedidoRepository pedidoRepository;
 	
 	@Override
 	public List<Pedido> getAllPedido() {

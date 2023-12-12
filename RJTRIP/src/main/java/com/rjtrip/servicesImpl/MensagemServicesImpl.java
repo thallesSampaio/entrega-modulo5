@@ -12,7 +12,7 @@ import com.rjtrip.services.MensagemServices;
 @Service
 public class MensagemServicesImpl implements MensagemServices {
 
-	MensagemRepository mensagemRepository;
+	private MensagemRepository mensagemRepository;
 	
 	@Override
 	public List<Mensagem> getAllMensagem() {

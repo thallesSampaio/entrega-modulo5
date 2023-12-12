@@ -14,7 +14,7 @@ import com.rjtrip.services.PacoteServices;
 public class PacoteServicesImpl implements PacoteServices {
 
 	@Autowired
-	PacoteRepository pacoteRepository;
+	private PacoteRepository pacoteRepository;
 
 	@Override
 	public List<Pacote> getAllPacote() {
