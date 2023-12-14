@@ -2,6 +2,7 @@ package com.rjtrip.servicesImpl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,7 @@ import com.rjtrip.services.MensagemServices;
 @Service
 public class MensagemServicesImpl implements MensagemServices {
 
+	@Autowired
 	private MensagemRepository mensagemRepository;
 	
 	@Override

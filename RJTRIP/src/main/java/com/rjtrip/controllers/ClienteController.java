@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.rjtrip.models.Cliente;
-import com.rjtrip.repositories.ClienteRepository;
 import com.rjtrip.services.ClienteServices;
 
 @Controller

@@ -25,18 +25,10 @@ public class Mensagem {
 	private String telefone;
 	
 	@Column(nullable = false, length = 500, unique = true)
-	private String mensagem;
+	private String msg;
 	
 	public Mensagem() {
 		
-	}
-
-	public Mensagem(Long id, String nome, String email, String telefone, String mensagem) {
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.telefone = telefone;
-		this.mensagem = mensagem;
 	}
 
 	public Long getId() {
@@ -71,11 +63,19 @@ public class Mensagem {
 		this.telefone = telefone;
 	}
 
-	public String getMensagem() {
-		return mensagem;
+	public String getMsg() {
+		return msg;
 	}
 
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+	public Mensagem(Long id, String nome, String email, String telefone, String msg) {
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.telefone = telefone;
+		this.msg = msg;
 	}
 }
