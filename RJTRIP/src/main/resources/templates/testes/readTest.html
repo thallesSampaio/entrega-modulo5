@@ -8,15 +8,19 @@
 	<div>
 			<h1>teste read</h1>
 			<table>
-				<tr th:each="pacote : ${pacotes}">
-					<td th:text="${pacote.id}"></td>
-					<td th:text="${pacote.nome}"></td>
-					<td th:text="${pacote.duracao}"></td>
-					<td th:text="${pacote.preco}"></td>
+				<tr th:each="pedido : ${pedidos}">
+					<td th:text="${pedido.id}"></td>
+					<td th:text="${pedido.dataViagem}"></td>
+					<td th:text="${pedido.dataPedido}"></td>
+					<td th:text="${pedido.destinos}"></td>
+					<td th:text="${pedido.cliente.id}"></td>
+					<td th:text="${pedido.cliente.nome}"></td>
+					<td th:text="${pedido.pacote.id}"></td>
+					<td th:text="${pedido.pacote.nome}"></td>
+					<td th:text="${pedido.duracao}"></td>
 					<td>
-						<a th:href="@{/admin/editar/{id}(id=${pacote.id})}">Editar</a>
-				<a th:href="@{/admin/deletar/{id}(id=${pacote.id})}"> Excluir </a>
-			</td>
+						<a th:href="@{/pedido/deletar/{id}(id=${pedido.id})}">Excluir</a>
+					</td>
 				</tr>
 			</table>
 		</div>
