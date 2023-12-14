@@ -2,20 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
-	<title> Listagem de clientes </title>
+	<title> Listagem de pacotes </title>
 </head>
 <body>
 	<div>
 			<h1>teste read</h1>
 			<table>
-				<tr th:each="mensagem : ${mensagens}">
-					<td th:text="${mensagem.id}"></td>
-					<td th:text="${mensagem.nome}"></td>
-					<td th:text="${mensagem.email}"></td>
-					<td th:text="${mensagem.telefone}"></td>
-					<td th:text="${mensagem.msg}"></td>
+				<tr th:each="pacote : ${pacotes}">
+					<td th:text="${pacote.id}"></td>
+					<td th:text="${pacote.nome}"></td>
+					<td th:text="${pacote.duracao}"></td>
+					<td th:text="${pacote.preco}"></td>
 					<td>
-				<a th:href="@{/deletar/{id}(id=${mensagem.id})}"> Excluir </a>
+						<a th:href="@{/admin/editar/{id}(id=${pacote.id})}">Editar</a>
+				<a th:href="@{/admin/deletar/{id}(id=${pacote.id})}"> Excluir </a>
 			</td>
 				</tr>
 			</table>
