@@ -39,6 +39,7 @@ public class ClienteServicesImpl implements ClienteServices {
 		if(clienteExistente != null) {
 			clienteExistente.setNome(clienteUpdated.getNome());
 			clienteExistente.setCpf(clienteUpdated.getCpf());
+			clienteExistente.setEmail(clienteUpdated.getEmail());
 			clienteExistente.setDataNascimento(clienteUpdated.getDataNascimento());
 			clienteExistente.setEndereco(clienteUpdated.getEndereco());
 			return clienteRepository.save(clienteExistente);
