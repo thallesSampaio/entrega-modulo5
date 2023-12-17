@@ -6,6 +6,8 @@ import java.util.List;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +33,7 @@ public class Pacote {
 	@Column(nullable = false, length = 80)
 	private float preco;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "pacote", orphanRemoval=true)
 	@Cascade(value= {CascadeType.ALL})
 	private List<Pedido> pedidos = new ArrayList<>();
