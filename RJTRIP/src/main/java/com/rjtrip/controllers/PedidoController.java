@@ -3,46 +3,43 @@ package com.rjtrip.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.rjtrip.models.Pedido;
 import com.rjtrip.services.PedidoServices;
 
-@Controller
+@RestController
 @RequestMapping("/pedido")
 public class PedidoController {
 
 	@Autowired
 	PedidoServices pedidoServices;
 	
-	@GetMapping("/listar")
-	public String listarPedidos(Model model) {
-		List<Pedido> pedidos = pedidoServices.getAllPedido();
-		model.addAttribute("pedidos", pedidos);
-		return "testes/readTest";
+	@PostMapping("/savepedido")
+	public Pedido createPedido(@RequestBody Pedido pedido) {
+		return pedidoServices.savePedido(pedido);
+	}
+
+	@GetMapping("/allpedidos")
+	public List<Pedido> getAllPedidos() {
+		return pedidoServices.getAllPedido();
 	}
 	
-	@GetMapping("/cadastro")
-	public String frmCadastroPedido(Model model) {
-		Pedido pedido = new Pedido();
-		model.addAttribute("pedido", pedido);
-		return "testes/savePedidoTest";
+	@GetMapping("/{id}")
+	public ResponseEntity<Pedido> getPedidoById(@PathVariable Long id) {
+		Pedido pedido = pedidoServices.getPedidoById(id);
+		return ResponseEntity.ok(pedido);
 	}
 	
-	@GetMapping("/cadastrar")
-	public String cadastrarPedido(@ModelAttribute("pedido") Pedido pedido) {
-		pedidoServices.savePedido(pedido);
-		return "redirect:/pedido/cadastro";
-	}
-	
-	@GetMapping("/deletar/{id}")
-	public String deletarPedido(@PathVariable Long id) {
+	@DeleteMapping("/{id}")
+	public void deletePedido(@PathVariable Long id) {
 		pedidoServices.deletePedido(id);
-		return "redirect:/pedido/listar";
 	}
 }
