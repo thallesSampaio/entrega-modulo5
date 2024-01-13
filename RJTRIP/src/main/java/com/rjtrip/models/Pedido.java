@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,12 +35,12 @@ public class Pedido {
     @DateTimeFormat(iso = ISO.DATE)
     private LocalDateTime dataPedido;
 	
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name = "pacote_id")
 	private Pacote pacote;
